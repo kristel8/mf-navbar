@@ -1,0 +1,385 @@
+// 1. En esta hoja de estilo sólo deberá incluir
+// las clases del template que desea customizar (.mat-).
+// 2. Recordar que cualquier estilo será afectado
+// a todos los componentes que compartan la misma clase.
+// 3. Evitar el uso del selector ng-deep*.
+// ***Modified v1: 26/10/21
+
+@import "~@angular/material/theming"; //Aqui puedes revisar los templates que tiene Material
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+@import "_colors";
+
+// Include non-theme styles for core.
+@include mat-core();
+
+//Aquí puedes cambiar las variables del template que serán utilizados
+$my-theme-primary: mat-palette($mat-red);
+$my-theme-accent: mat-palette($mat-red, A700, A100, A400);
+$my-theme-warn: mat-palette($mat-red);
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+// Include theme styles for Angular Material components.
+@include angular-material-theme($my-theme);
+
+$cdr: #eae8ec;
+// Include theme styles for your custom components.
+
+//Tipo de letra del template
+@font-face {
+  font-family: "Lato";
+  /* src: url(assets/fonts/Lato/Lato-Regular.ttf); */
+}
+
+@font-face {
+  font-family: "Lato Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url(assets/fonts/Lato/Lato-Bold.ttf);
+}
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  background: rgba(245, 245, 245);
+  font-family: Lato, sans-serif;
+}
+
+body {
+  overflow: auto;
+  margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700 !important;
+}
+
+.row {
+  align-items: flex-start;
+  //margin: 5px 0;
+}
+
+.fontLabel {
+  font-size: 14px;
+  font-family: "Lato Bold";
+  color: #969595;
+}
+
+mat-card-header.dis-block {
+  display: block !important;
+}
+
+mat-card.mat-card {
+  margin-top: 2px;
+}
+
+.btnFocus {
+  background: #505050;
+  color: #ffffff;
+}
+
+.mat {
+  &-sort-header-button {
+    color: $txt-plomo !important;
+    font-weight: normal !important;
+    text-transform: uppercase;
+  }
+  &-checkbox-frame {
+    border: 1px solid $txt-plomo !important;
+    background-color: $cdr !important;
+  }
+}
+
+mat {
+  &-cell span {
+    color: $txt-plomo !important;
+  }
+}
+
+.mat-select-value {
+  color: $txt-plomo !important;
+}
+
+label.mat-checkbox-layout {
+  margin-bottom: 0 !important;
+}
+
+//  nuevos estilos
+
+.header__bac {
+  // max-width: 1340px;
+  margin: 0 auto;
+  width: 100%;
+
+  &-tree {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+    label {
+      margin: 0;
+    }
+
+    mat-icon {
+      font-size: 24px !important;
+    }
+
+    .label-prev-chev {
+      font-size: 0.7rem;
+      color: #969595;
+    }
+
+    .label-post-chev {
+      font-size: 0.7rem;
+      color: $primary-color;
+    }
+  }
+  &-actions {
+    display: flex;
+    margin-bottom: 1em;
+    h2 {
+      margin: 0;
+      color: #433e3f;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .btn__elimination {
+      background-color: $primary-color;
+      border: none;
+      color: $light-color;
+      border-radius: 5px;
+      margin: 0 1em;
+
+      font-weight: 300;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      padding-top: 4px;
+
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-iteration-count: 1;
+      animation-name: rubberBand;
+    }
+
+    @keyframes rubberBand {
+      from {
+        transform: scale3d(1, 1, 1);
+      }
+
+      30% {
+        transform: scale3d(1.25, 0.75, 1);
+      }
+
+      40% {
+        transform: scale3d(0.75, 1.25, 1);
+      }
+
+      50% {
+        transform: scale3d(1.15, 0.85, 1);
+      }
+
+      65% {
+        transform: scale3d(0.95, 1.05, 1);
+      }
+
+      75% {
+        transform: scale3d(1.05, 0.95, 1);
+      }
+
+      to {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    .rubberBand {
+      -webkit-animation-name: rubberBand;
+      animation-name: rubberBand;
+    }
+  }
+}
+
+.my-popup-manage-columbs-container {
+  padding: 0;
+  border-radius: 20px;
+}
+
+.fontclass-chica-combo-bold,
+.mat-card-header {
+  display: flex;
+  column-gap: 15px;
+}
+
+.mat-dialog-container {
+  box-shadow: 0px 3px 15px #d1c2c250 !important;
+  border-radius: 20px !important;
+}
+
+.dropdown-multiselect__caret {
+  margin-top: 0.2em;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 0px !important;
+  border: 1px solid #f0f0f0 !important; //borde de la izquierda
+  border-right-style: none !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0px !important;
+  border: 1px solid #f0f0f0 !important; //todos los bordes excepto la izquierda
+  border-left-style: none !important;
+}
+
+.mat-select-panel {
+  left: 0em !important;
+}
+
+.mat-select-panel ng-animating {
+  visibility: hidden;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.2em 0;
+}
+
+.mat-select-value-text {
+  color: #433e3f !important;
+}
+
+.mat-select-value {
+  color: #433e3f !important;
+}
+
+.mat-select-placeholder {
+  color: #433e3f !important;
+}
+
+.mat-select-panel::-webkit-scrollbar-track {
+  display: none;
+}
+
+.mat-select-panel::-webkit-scrollbar {
+  width: 4px;
+  background-color: #ffffff;
+}
+
+.mat-select-panel::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #c3c1c1;
+}
+
+// }
+
+//new forms
+.form-control {
+  min-height: 40px !important;
+}
+
+//progress bar
+
+.mat-progress-bar-buffer {
+  background: #e4e8eb;
+}
+
+.mat-progress-bar {
+  border-radius: 2px;
+}
+
+.mat-stroked-button[disabled][disabled] {
+  background: #818181;
+  color: #444444;
+  margin-right: 0.25rem;
+}
+
+//field design
+
+.mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.4em 0px !important;
+}
+
+.mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}
+
+.multiselect-dropdown .dropdown-btn {
+  display: inline-block;
+  border: 1px solid #adadad;
+  width: 100%;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border-radius: 10px;
+}
+
+.mat-radio-ripple .mat-ripple {
+  height: 20px;
+  width: 20px;
+}
+
+.mat-dialog-actions {
+  margin-bottom: 0 !important;
+}
+
+.mat-radio-label {
+  white-space: normal !important;
+}
+
+
+
+.mat-select-panel {
+  position: absolute;
+  top: 32px;
+  left: 30px !important;
+  min-width: calc(100% + 12px) !important;
+  border-radius: 0px !important;
+  border: none;
+  border-top-style: none;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 0px !important;
+  border: 1px solid #f0f0f0 !important;
+  border-right-style: none !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0px !important;
+  border: 1px solid #f0f0f0 !important;
+  border-left-style: none !important;
+}
+
+.mat-select-panel ng-animating {
+  visibility: hidden;
+}

@@ -1,0 +1,35 @@
+// 1. Aqui se manejarán las variables de los colores del template
+
+
+//Colores de BAC
+
+//Colores utilizados para iconos, letras y/o botones
+$primary-color:       #E4002B;
+$secondary-color:     #c8102e;
+$secondaryDark-color: #A52C41;
+
+//Colores para textos
+$light-color:         #fff;
+$txt-plomo:           #7f7e7e;
+
+//Colores transparentes para seleccionados (filas, selects, etc)
+$background-color:    rgba(212, 0, 0, 0.1);
+
+//Colores transparentes para hover (filas, selects, etc)
+$hover-light-color: lighten($primary-color, 50%);
+
+
+//Filter de imagenes a color Rojo
+//Editar los filter según el tema, consultar en el siguiente link: https://isotropic.co/hex-color-to-css-filter/
+$color-icon-selected: invert(15%) sepia(72%) saturate(7240%) hue-rotate(343deg) brightness(86%) contrast(110%);
+$color-icon-notSelected: invert(80%) sepia(2%) saturate(13%) hue-rotate(329deg) brightness(96%) contrast(91%);
+
+
+//Colores de alertas
+$successDark-color: #6b9a75;
+$dangerDark-color:  #721c24;
+$warningDark-color: #997c26;
+
+$success-color: #1ea357;
+$danger-color:  #dc1431;
+$warning-color: #fff385;

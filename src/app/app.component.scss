@@ -1,0 +1,136 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '_colors.scss';
+
+
+// New desing
+mat-toolbar {
+  padding: 0;
+}
+.hiper__container {
+  // height: 100%;
+  height: calc(100vh - 48px);
+
+  .toolbar {
+    background-color: #fff !important;
+    color: #6d6e71;
+    font-size: 14px;
+    height: 48px;
+    border-bottom: 1px solid #e3e2e2;
+
+    .bac__logo {
+      width: 78px;
+      height: 25px;
+      margin-left: 5px;
+      margin-bottom: 8px;
+      margin-top: 9px;
+    }
+
+    &-icon {
+      color: $primary-color;
+      margin-left: 5px;
+      margin-bottom: 9px;
+      width: 18px;
+      height: 12px;
+    }
+
+    &__menu {
+      display: flex;
+      width: 370px;
+      background-color: #fff !important;
+      justify-content: space-between;
+      margin-right: 2em;
+      margin-top: 0.4em;
+
+      &-notification {
+        margin-top: 0.1em;
+        margin-left: 30px;
+      }
+
+      &-icon {
+        width: 10px;
+        margin-left: 0.3em;
+      }
+
+      &-icon-profile {
+        width: 24px;
+        margin-left: 0.3em;
+      }
+
+      .icon-big {
+        transform: scale(1.3);
+      }
+
+      .language {
+        width: 80px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: 1em;
+      }
+
+      .user {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
+
+  .mat__container {
+    height: 100%;
+
+    .mat__sidebar {
+      max-width: 288px;
+      box-shadow: 0px 3px 30px #00000029;
+      min-width: 56px;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .btn {
+    height: 50px;
+    width: 50px;
+    background: none;
+    border: none;
+    margin-left: 0.3em;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .hiper__content {
+    width: 100%;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-icon {
+    color: #504144;
+  }
+
+.abrir-cerrar {
+    color: #2E88C7;
+    font-size: 1rem;
+}
+
+::ng-deep .mat-checkbox-layout {
+  white-space: normal !important;
+}
+  .mat-list-base {
+    padding-top: 12px;
+  }
+}
+
+::ng-deep.mat-checkbox-checked.mat-accent.mat-checkbox-disabled .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: rgb(151, 149, 149) !important;
+}
+
+::ng-deep.mat-sidenav .mat-drawer-inner-container {
+  padding: 0 10px;
+}

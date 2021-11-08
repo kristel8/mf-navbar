@@ -1,0 +1,100 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button (click)="toggleSideBar()" class="btn">
+    <img
+      class="mat-icon img-menu"
+      src="assets/images/icons/menu.svg"
+      alt="toolbar_menu"
+    />
+  </button>
+  <img class="bac__logo" src="assets/images/icons/BAC_logo.svg" alt="bac_logo" />
+  <span class="spacer"></span>
+  <div class="toolbar__menu">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="notifi"
+    >
+      <mat-icon
+        [matBadge]="notificactionCount"
+        matBadgePosition="above after"
+        matBadgeColor="warn"
+        matBadgeSize="small"
+        class="no-select toolbar__menu-notification"
+        >notifications_active</mat-icon
+      >
+    </button>
+    <mat-menu #notifi="matMenu">
+      <div class="notificaciones container">
+        <h6>{{ notificactionCount }} Solicitudes pendientes</h6>
+        <mat-divider></mat-divider>
+
+        <div
+          (click)="loadPage(notif.raid)"
+          *ngFor="let notif of notificReqList"
+        >
+          <div class="row p-2">
+            <div class="col-2 d-flex p-0">
+              <mat-icon>notifications</mat-icon>
+            </div>
+            <div class="col-10">
+              <h4>{{ utils.getLaguajeName(notif.moduleTypeDesc) }}</h4>
+              <p>{{ notif.fullName }}</p>
+              <div class="row">
+                <div class="col-6">
+                  <span class="status">{{ notif.operationTypeDesc }}</span>
+                </div>
+                <div class="col-6">
+                  <span>{{
+                    utils.getMinDateFormatter(notif.requestDate)
+                  }}</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <a class="notilink" routerLink="/approvalRequest">Ver todas</a>
+      </div>
+    </mat-menu>
+
+    <!-- <mat-divider vertical></mat-divider> -->
+    <div class="user">
+      <span
+        >Hola, <strong>{{ fullName }}</strong>
+      </span>
+      <img
+        class="
+          mat-icon
+          notranslate
+          material-icons
+          mat-icon-no-color
+          toolbar__menu-icon-profile
+        "
+        width="24px"
+        src="assets/images/icons/profile.svg"
+        alt="toolbar_profile"
+      />
+
+      <img
+        [matMenuTriggerFor]="menuUser"
+        class="
+          mat-icon
+          notranslate
+          material-icons
+          mat-icon-no-color
+          toolbar__menu-icon
+          clickable
+        "
+        src="assets/images/icons/arrow_down.svg"
+        alt="toolbar_menu"
+      />
+      <mat-menu #menuUser="matMenu">
+        <button mat-menu-item routerLink="/login" (click)="logout()">
+          Cerrar sesión
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
